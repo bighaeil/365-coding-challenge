@@ -20,8 +20,7 @@
    ```
 
 2. `src/` 폴더에 문제 풀 **폴더**를 만들어 `index.js`와 `README.md`를 넣습니다.
-   예: `src/problem1/index.js`, `src/problem1/README.md`
-3. `tests/` 폴더에 해당 풀이를 검증하는 테스트을 작성합니다. 예: `tests/problem1.test.js`
+   예: `src/problem1/index.js`, `src/problem1/README.md`   - `index.js` 안에 함수 구현과 함께 `console.log` 예시를 두어서 각 폴더에서 `node index.js`로 바로 실행할 수 있습니다.3. `tests/` 폴더에 해당 풀이를 검증하는 테스트을 작성합니다. 예: `tests/problem1.test.js`
 
 폴더 구조 예시:
 ```

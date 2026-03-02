@@ -5,4 +5,5 @@ function reverseString(str) {
   return str.split('').reverse().join('');
 }
 
-module.exports = { reverseString };
+// 예시 실행: `node index.js`로 테스트
+console.log(reverseString('hello'));

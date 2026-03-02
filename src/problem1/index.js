@@ -5,4 +5,5 @@ function uniqueArray(arr) {
   return [...new Set(arr)];
 }
 
-module.exports = { uniqueArray };
+// 예시 실행: `node index.js`로 테스트
+console.log(uniqueArray([1, 2, 2, 3, 3, 4]));

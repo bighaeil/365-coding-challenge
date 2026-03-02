@@ -21,6 +21,13 @@ function reverseString(str) {
 }
 ```
 
+## 사용 방법
+폴더에서 직접 실행하려면:
+```
+node index.js
+```
+출력: `olleh` (예시)
+
 ## 테스트
 `tests/problem2.test.js`에 다음 테스트가 있습니다:
 

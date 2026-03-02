@@ -22,6 +22,13 @@ function uniqueArray(arr) {
 }
 ```
 
+## 사용 방법
+폴더에서 직접 실행하려면:
+```
+node index.js
+```
+출력: `[1,2,3,4]` (예시)
+
 ## 테스트
 `tests/problem1.test.js` 파일에 아래와 같은 테스트가 작성되어 있습니다:
 
