@@ -1,0 +1,17 @@
+{
+  "name": "365-coding-challenge",
+  "version": "1.0.0",
+  "description": "매일 코딩 테스트 연습",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": ["coding-challenge", "algorithm", "practice"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
