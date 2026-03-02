@@ -30,10 +30,10 @@ node index.js
 출력: `[1,2,3,4]` (예시)
 
 ## 테스트
-`tests/problem1.test.js` 파일에 아래와 같은 테스트가 작성되어 있습니다:
+`tests/ex1.test.js` 파일에 아래와 같은 테스트가 작성되어 있습니다:
 
 ```js
-const { uniqueArray } = require('../src/problem1');
+const { uniqueArray } = require('../src/ex1');
 
 test('uniqueArray removes duplicates correctly', () => {
   expect(uniqueArray([1,2,2,3,3,4])).toEqual([1,2,3,4]);

@@ -28,9 +28,43 @@
 
 ## 풀이
 
+### 접근 방식: 스택(Stack) 활용
+
+1. 열린 괄호(`(`, `{`, `[`)를 만나면 스택에 push
+2. 닫힌 괄호(`)`, `}`, `]`)를 만나면 스택의 top과 짝이 맞는지 확인
+3. 짝이 맞으면 pop, 아니면 `false` 반환
+4. 순회가 끝난 후 스택이 비어있으면 `true`
+
+### 코드
+
 ```javascript
-// 여기에 풀이를 작성하세요
+function isValid(s) {
+  const stack = [];
+  const pairs = {
+    ")": "(",
+    "}": "{",
+    "]": "[",
+  };
+
+  for (const char of s) {
+    if (char === "(" || char === "{" || char === "[") {
+      stack.push(char);
+    } else {
+      if (stack.length === 0 || stack[stack.length - 1] !== pairs[char]) {
+        return false;
+      }
+      stack.pop();
+    }
+  }
+
+  return stack.length === 0;
+}
 ```
+
+### 복잡도
+
+- 시간복잡도: **O(n)** — 문자열을 한 번 순회
+- 공간복잡도: **O(n)** — 최악의 경우 모든 문자가 열린 괄호
 
 ## 회고
 

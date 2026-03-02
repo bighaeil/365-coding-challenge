@@ -29,10 +29,10 @@ node index.js
 출력: `olleh` (예시)
 
 ## 테스트
-`tests/problem2.test.js`에 다음 테스트가 있습니다:
+`tests/ex2.test.js`에 다음 테스트가 있습니다:
 
 ```js
-const { reverseString } = require('../src/problem2');
+const { reverseString } = require('../src/ex2');
 
 test('reverseString correctly reverses input', () => {
   expect(reverseString('hello')).toBe('olleh');
