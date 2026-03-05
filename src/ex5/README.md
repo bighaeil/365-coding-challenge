@@ -1,0 +1,97 @@
+# Day 003 - 두 배열의 교집합 II (Intersection of Two Arrays II)
+
+## 난이도
+
+Easy (기술면접 빈출 — 후속 질문이 핵심)
+
+## 문제
+
+두 정수 배열 `nums1`과 `nums2`가 주어졌을 때, **교집합을 배열로 반환**하세요. 결과에서 각 원소는 두 배열에 나타나는 횟수만큼 포함되어야 합니다.
+
+## 조건
+
+- `1 <= nums1.length, nums2.length <= 1000`
+- `0 <= nums1[i], nums2[i] <= 1000`
+- 결과의 순서는 상관없음
+
+## 예시
+
+| 입력 | 출력 | 설명 |
+|------|------|------|
+| `[1,2,2,1]`, `[2,2]` | `[2,2]` | 2가 양쪽에 2번씩 |
+| `[4,9,5]`, `[9,4,9,8,4]` | `[4,9]` | 4와 9가 공통 |
+| `[1,2,3]`, `[4,5,6]` | `[]` | 공통 원소 없음 |
+
+## 힌트
+
+- `Map`을 사용하여 한쪽 배열의 원소 빈도를 카운팅하세요.
+- 다른 배열을 순회하며 `Map`에서 빈도를 차감하세요.
+
+## 풀이
+
+### 접근 방식: 해시맵 카운팅
+
+1. `nums1`의 각 원소 등장 횟수를 `Map`에 저장
+2. `nums2`를 순회하면서 `Map`에 존재하고 카운트가 0보다 크면 결과에 추가
+3. 추가할 때마다 카운트를 1 감소
+
+### 코드
+
+```javascript
+function intersect(nums1, nums2) {
+  const countMap = new Map();
+  const result = [];
+
+  // nums1의 빈도 카운팅
+  for (const num of nums1) {
+    countMap.set(num, (countMap.get(num) || 0) + 1);
+  }
+
+  // nums2를 순회하며 교집합 추출
+  for (const num of nums2) {
+    if (countMap.has(num) && countMap.get(num) > 0) {
+      result.push(num);
+      countMap.set(num, countMap.get(num) - 1);
+    }
+  }
+
+  return result;
+}
+```
+
+### 동작 예시 (`nums1 = [1,2,2,1]`, `nums2 = [2,2]`)
+
+```
+1단계 — countMap 생성:
+  { 1 → 2, 2 → 2 }
+
+2단계 — nums2 순회:
+  num=2 → countMap에 2가 있고 count=2 → result=[2], count 감소 → { 1→2, 2→1 }
+  num=2 → countMap에 2가 있고 count=1 → result=[2,2], count 감소 → { 1→2, 2→0 }
+
+결과: [2, 2]
+```
+
+### 복잡도
+
+- 시간복잡도: **O(n + m)** — 두 배열을 각각 한 번 순회
+- 공간복잡도: **O(min(n, m))** — 더 작은 배열로 Map을 만들면 최적
+
+### 면접 후속 질문
+
+면접관이 자주 던지는 후속 질문들입니다:
+
+1. **"배열이 이미 정렬되어 있다면?"**
+   → 투 포인터(Two Pointer) 방식으로 O(1) 공간에 풀 수 있음
+
+2. **"nums1이 매우 작고 nums2가 매우 크다면?"**
+   → 작은 배열로 Map을 만들어 공간 절약
+
+3. **"nums2가 디스크에 저장되어 메모리에 다 못 올린다면?"**
+   → nums1으로 Map을 만들고, nums2를 청크(chunk) 단위로 읽으며 처리
+
+## 회고
+
+- 걸린 시간:
+- 어려웠던 점:
+- 배운 점:
