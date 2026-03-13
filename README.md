@@ -6,100 +6,130 @@
 
 ```
 365-coding-challenge/
-├── src/           # 문제 풀이 코드 (ex1, ex2, ex3 ...)
+├── src/                  # 문제 풀이 코드 (ex1, ex2, ex3 ...)
 │   ├── ex1/
 │   │   ├── index.js
+│   │   ├── test.js
 │   │   └── README.md
 │   ├── ex2/
 │   │   ├── index.js
+│   │   ├── test.js
 │   │   └── README.md
-│   └── ex3/
+│   ├── ex3/
+│   │   ├── index.js
+│   │   ├── test.js
+│   │   └── README.md
+│   ├── ex4/
+│   │   ├── index.js
+│   │   ├── test.js
+│   │   └── README.md
+│   ├── ex5/
+│   │   ├── index.js
+│   │   ├── test.js
+│   │   └── README.md
+│   └── ex6/
 │       ├── index.js
+│       ├── test.js
 │       └── README.md
-├── tests/         # Jest 테스트 코드 (ex1.test.js 등)
-├── package.json   # 의존성 및 스크립트
-└── README.md      # 이 파일
+├── cs-study/             # CS 개념 정리
+│   ├── network/
+│   ├── os/
+│   ├── database/
+│   └── data-structure/
+├── package.json
+├── package-lock.json
+└── README.md
 ```
 
 ## 🚀 시작하기
 
 1. 저장소를 클론하고 의존성 설치:
+
    ```bash
    npm install
    ```
 
-2. `src/` 폴더에 문제 풀 **폴더**를 만들어 `index.js`와 `README.md`를 넣습니다.
-   예: `src/ex1/index.js`, `src/ex1/README.md`   - `index.js` 안에 함수 구현과 함께 `console.log` 예시를 두어서 폴더에서 `node index.js`로 바로 실행할 수 있습니다.
-3. `tests/` 폴더에 해당 풀이를 검증하는 테스트을 작성합니다. 예: `tests/ex1.test.js` (현재 `ex1`, `ex2` 등)
+2. `src/` 폴더에 문제 풀 **폴더**를 만들어 `index.js`, `test.js`, `README.md`를 넣습니다.
 
-폴더 구조 예시:
-```
-src/
-├── ex1/
-│   ├── index.js
-│   └── README.md
-├── ex2/
-│   ├── index.js
-│   └── README.md
-├── ex3/
-│   ├── index.js
-│   └── README.md
-```
-
-각 문제 폴더의 `README.md`에는 문제 설명과 예시, 구현 아이디어를 적어두면 관리하기 편합니다. 3번 문제부터는 `src/ex3`처럼 연번을 사용하며, 이름은 자유롭게 붙여도 됩니다.
+   예: `src/ex7/index.js`, `src/ex7/test.js`, `src/ex7/README.md`
 
 ## 🧪 테스트 실행
 
-- 전체 테스트 실행: `npm test`
-- 변경된 파일만 감시하며 테스트: `npm run test:watch`
-- 커버리지 보고서: `npm run test:coverage`
+```bash
+# 전체 테스트 실행
+npm test
 
-## 📁 폴더 설명
+# 변경된 파일만 감시하며 테스트
+npm run test:watch
 
-- **src/**: 문제 풀이 함수가 들어가는 폴더
-
-🎯 매일 문제를 풀고 테스트를 추가하며 꾸준히 실력을 향상하세요!
-
----
+# 커버리지 보고서
+npm run test:coverage
+```
 
 ## 📝 코딩 테스트 포맷
 
-각 문제는 다음 형식으로 구성하세요:
+각 문제는 다음 형식으로 구성하세요.
 
-1. `src/exN/` 폴더 생성 (N은 연속 번호 또는 주제명)
-2. **index.js**
-   - 문제 풀이 함수 작성
-   - 본문 상단에 문제 설명 및 주석 추가 가능
-   - 실행 예시와 간단한 테스트 스크립트 포함 가능
-   - `console.log`로 결과를 확인하는 방식 (모듈 내보내기는 선택적)
-3. **README.md**
-   - 문제 개요, 입력/출력 조건, 예제, 풀이 아이디어, 면접 팁 등의 문서화
-   - `src/ex4/README.md` 같은 스타일을 참고
+### 1. 폴더 생성
 
-폴더 구조 예시:
+`src/exN/` 폴더를 생성합니다. N은 연속 번호입니다.
 
-```
-src/
-├── ex1/
-│   ├── index.js
-│   └── README.md
-├── ex2/
-│   ├── index.js
-│   └── README.md
-0>
-├── ex4/
-│   ├── index.js  # 예시: 슬라이딩 윈도우 문제
-│   └── README.md
+### 2. index.js
+
+```javascript
+/**
+ * exN. 문제 제목
+ * 문제 설명 한 줄 요약
+ */
+
+function solution(input) {
+  // 여기에 풀이를 작성하세요
+}
+
+// 실행 예시
+console.log(solution(...)); // 예상 출력
+
+module.exports = { solution };
 ```
 
-위 지침을 따라 문제를 추가하면 레포가 일관된 코딩 테스트 연습장으로 유지됩니다.
+### 3. README.md
 
+```markdown
+# exN. 문제 제목
 
----
+## 문제 설명
+문제 내용
 
-## 📚 CS Study 레포 추가
+## 입력 조건
+- 조건 1
+- 조건 2
 
-이 저장소에는 간단한 **CS 개념 정리**를 위한 `cs-study/` 폴더도 포함되어 있습니다. 구조는 아래와 같습니다:
+## 예제
+입력: ...
+출력: ...
+
+## 풀이 아이디어
+- 접근 방법
+
+## 면접 팁
+면접에서 활용할 수 있는 포인트
+```
+
+### 4. test.js
+
+```javascript
+const { solution } = require('./index');
+
+describe('exN. 문제 제목', () => {
+  test('케이스 설명', () => {
+    expect(solution(...)).toEqual(...);
+  });
+});
+```
+
+## 📚 CS Study
+
+CS 개념 정리를 위한 `cs-study/` 폴더도 포함되어 있습니다.
 
 ```
 cs-study/
@@ -110,7 +140,18 @@ cs-study/
 ```
 
 - 매일 하나의 개념을 선택해 마크다운 문서로 정리하고 커밋하세요.
-- 예: `cs-study/network/tcp_udp.md`에는 TCP와 UDP 차이 설명이 들어있습니다.
-- AI에게 "오늘 CS 문제 하나 내줘"라고 요청하면 이 레포 내용을 기반으로 질문/답변을 진행할 수 있습니다.
+- 예: `cs-study/network/tcp_udp.md`
+- AI에게 "오늘 CS 문제 하나 내줘"라고 요청하면 문답식으로 진행할 수 있습니다.
 
-이 방식은 CS 면접 준비에도 큰 도움이 됩니다!  
+## 📋 문제 목록
+
+| # | 제목 | 유형 | 난이도 | 날짜 |
+|---|------|------|--------|------|
+| ex1 | - | - | - | - |
+| ex2 | - | - | - | - |
+| ex3 | - | - | - | - |
+| ex4 | - | - | - | - |
+| ex5 | - | - | - | - |
+| ex6 | 두 수의 합 (Two Sum) | 해시맵 | 실버 | 2026-03-13 |
+
+🎯 매일 문제를 풀고 테스트를 추가하며 꾸준히 실력을 향상하세요!
