@@ -1,58 +1,40 @@
-# ex7. 유효한 괄호 (Valid Parentheses)
+# ex7. 숫자 배열에서 가장 큰 수 만들기
 
 ## 문제 설명
-문자열 `s`가 주어질 때, 괄호가 올바르게 닫혀 있으면 `true`, 아니면 `false`를 반환하세요.
-
-괄호의 종류는 `(`, `)`, `{`, `}`, `[`, `]` 입니다.
+정수 배열 `nums`가 주어질 때, 배열의 숫자들을 이어 붙여 만들 수 있는
+가장 큰 수를 문자열로 반환하세요.
 
 ## 입력 조건
-- 1 ≤ s.length ≤ 10,000
-- s는 괄호 문자로만 이루어짐
-- 열린 괄호는 반드시 같은 종류의 닫힌 괄호로 닫혀야 함
-- 열린 괄호는 올바른 순서로 닫혀야 함
+- 1 ≤ nums.length ≤ 100
+- 0 ≤ nums[i] ≤ 10,000
 
 ## 예제
-입력: s = "()"
-출력: true
+입력: nums = [10, 2]
+출력: "210"
 
-입력: s = "()[]{}"
-출력: true
+입력: nums = [3, 30, 34, 5, 9]
+출력: "9534330"
 
-입력: s = "(]"
-출력: false
-
-입력: s = "([)]"
-출력: false
-
-입력: s = "{[]}"
-출력: true
+입력: nums = [0, 0]
+출력: "0"
 
 ## 풀이 아이디어
-- 스택(Stack) 활용
-- 여는 괄호는 스택에 push
-- 닫는 괄호가 나오면 스택 top과 쌍이 맞는지 확인
-- 끝까지 순회 후 스택이 비어있으면 true
+- 두 수 a, b를 비교할 때 "ab" vs "ba" 문자열 비교로 정렬
+- 정렬 후 이어 붙이기
+- 모두 0인 경우 "0" 반환
 
 ## 해답
+```javascript
+function largestNumber(nums) {
+  const result = nums
+    .map(String)
+    .sort((a, b) => (b + a) - (a + b))
+    .join('');
 
-### 스택 활용 O(n)
-function isValid(s) {
-  const stack = [];
-  const map = { ')': '(', '}': '{', ']': '[' };
-
-  for (const char of s) {
-    if (!map[char]) {
-      // 여는 괄호면 push
-      stack.push(char);
-    } else {
-      // 닫는 괄호면 스택 top과 비교
-      if (stack.pop() !== map[char]) return false;
-    }
-  }
-
-  return stack.length === 0;
+  return result[0] === '0' ? '0' : result;
 }
+```
 
 ## 면접 팁
-스택의 LIFO(Last In First Out) 특성이 왜 이 문제에 적합한지 설명할 수 있으면 좋아요.
-map으로 괄호 쌍을 관리하는 방식도 함께 설명하세요.
+단순 숫자 정렬이 아닌 문자열 조합 비교로 정렬하는 커스텀 comparator 개념을
+설명할 수 있으면 좋아요. sort의 시간복잡도 O(n log n)도 함께 언급하세요.
