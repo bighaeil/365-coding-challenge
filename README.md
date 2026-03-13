@@ -7,6 +7,10 @@
 ```
 365-coding-challenge/
 ├── src/                  # 문제 풀이 코드 (ex1, ex2, ex3 ...)
+│   ├── ex0/              # 문제 템플릿
+│   │   ├── index.js      # EMPTY
+│   │   ├── test.js       # EMPTY
+│   │   └── README.md     # EMPTY
 │   ├── ex1/
 │   │   ├── index.js
 │   │   ├── test.js
