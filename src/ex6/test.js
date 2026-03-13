@@ -1,4 +1,4 @@
-const { twoSum } = require('../src/ex6/index');
+const { twoSum } = require('./index');
 
 describe('ex6. 두 수의 합', () => {
   test('[2,7,11,15], target=9 → [0,1]', () => {
