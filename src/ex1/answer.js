@@ -2,7 +2,7 @@
 // 입력: [1,2,2,3] -> 출력: [1,2,3]
 
 function uniqueArray(arr) {
-  // 여기에 풀이를 작성하세요
+  return [...new Set(arr)];
 }
 
 // 예시 실행: `node index.js`로 테스트

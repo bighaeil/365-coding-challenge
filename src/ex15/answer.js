@@ -11,6 +11,20 @@
  */
 function solution(priorities, location) {
   // 여기에 풀이를 작성하세요
+  const queue = priorities.map((priority, index) => [priority, index])
+  let count = 0;
+
+  while (queue.length > 0) {
+    const [priority, index] = queue.shift();
+    const hasHigher = queue.some(([p]) => p > priority);
+ 
+    if (hasHigher) {
+      queue.push([priority, index]);
+    } else {
+      count++;
+      if (index === location) return count;
+    }
+  }
 }
 
 // ─── 실행 예시 ───────────────────────────────────────────────────────────────

@@ -10,6 +10,13 @@
  */
 function solution(phoneBook) {
   // 여기에 풀이를 작성하세요
+  phoneBook.sort();
+
+  for (let i = 0; i < phoneBook.length - 1; i++) {
+    if (phoneBook[i + 1].startsWith(phoneBook[i])) return false;
+  }
+
+  return true;
 }
 
 // ─── 실행 예시 ───────────────────────────────────────────────────────────────

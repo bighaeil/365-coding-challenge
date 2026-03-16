@@ -20,6 +20,17 @@ class ListNode {
  */
 function hasCycle(head) {
   // 여기에 풀이를 작성하세요
+  let slow = head;
+  let fast = head;
+
+  while(fast !== null && fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    if (slow == fast) return true;
+  }
+
+  return false;
 }
 
 // ─── 테스트용 헬퍼: 배열과 pos로 연결 리스트 생성 ───────────────────────────
