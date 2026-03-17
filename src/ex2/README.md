@@ -15,11 +15,9 @@
 ## 풀이 아이디어
 자바스크립트 문자열을 배열로 바꾼 뒤 `reverse` 메서드를 이용하고 다시 합치면 쉽게 구현할 수 있습니다.
 
-```js
-function reverseString(str) {
-  return str.split('').reverse().join('');
-}
-```
+
+ (풀이 후 작성)
+
 
 ## 사용 방법
 폴더에서 직접 실행하려면:

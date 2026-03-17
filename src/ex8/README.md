@@ -24,22 +24,9 @@
 - 시간복잡도 O(log n)
 
 ## 해답
-```javascript
-function search(nums, target) {
-  let left = 0;
-  let right = nums.length - 1;
 
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
+ (풀이 후 작성)
 
-    if (nums[mid] === target) return mid;
-    else if (nums[mid] < target) left = mid + 1;
-    else right = mid - 1;
-  }
-
-  return -1;
-}
-```
 
 ## 면접 팁
 이진 탐색은 O(log n)이 왜 나오는지 설명할 수 있어야 해요.

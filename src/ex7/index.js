@@ -5,6 +5,11 @@
 
 function largestNumber(nums) {
   // 여기에 풀이를 작성하세요
+  const result = nums.map(String)
+  .sort((a, b) => (b + a) - (a + b))
+  .join('');
+
+  return result[0] === '0' ? '0' : result;
 }
 
 // 실행 예시

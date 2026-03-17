@@ -37,27 +37,8 @@ Easy (기술면접 빈출 — 후속 질문이 핵심)
 
 ### 코드
 
-```javascript
-function intersect(nums1, nums2) {
-  const countMap = new Map();
-  const result = [];
+ (풀이 후 작성)
 
-  // nums1의 빈도 카운팅
-  for (const num of nums1) {
-    countMap.set(num, (countMap.get(num) || 0) + 1);
-  }
-
-  // nums2를 순회하며 교집합 추출
-  for (const num of nums2) {
-    if (countMap.has(num) && countMap.get(num) > 0) {
-      result.push(num);
-      countMap.set(num, countMap.get(num) - 1);
-    }
-  }
-
-  return result;
-}
-```
 
 ### 동작 예시 (`nums1 = [1,2,2,1]`, `nums2 = [2,2]`)
 

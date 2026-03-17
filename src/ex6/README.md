@@ -37,21 +37,9 @@ function twoSum(nums, target) {
 ```
 
 ### 최적화 - Map 활용 O(n)
-```javascript
-function twoSum(nums, target) {
-  const map = new Map(); // { 값: 인덱스 }
 
-  for (let i = 0; i < nums.length; i++) {
-    const complement = target - nums[i]; // 필요한 나머지 값
+ (풀이 후 작성)
 
-    if (map.has(complement)) {
-      return [map.get(complement), i];
-    }
-
-    map.set(nums[i], i);
-  }
-}
-```
 
 ## 면접 팁
 Map을 활용한 O(n) 풀이를 설명할 수 있으면 좋아요.

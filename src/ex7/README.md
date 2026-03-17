@@ -24,16 +24,9 @@
 - 모두 0인 경우 "0" 반환
 
 ## 해답
-```javascript
-function largestNumber(nums) {
-  const result = nums
-    .map(String)
-    .sort((a, b) => (b + a) - (a + b))
-    .join('');
 
-  return result[0] === '0' ? '0' : result;
-}
-```
+ (풀이 후 작성)
+
 
 ## 면접 팁
 단순 숫자 정렬이 아닌 문자열 조합 비교로 정렬하는 커스텀 comparator 개념을

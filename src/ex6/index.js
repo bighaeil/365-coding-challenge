@@ -5,6 +5,17 @@
 
 function twoSum(nums, target) {
   // 여기에 풀이를 작성하세요
+  const map = new Map();
+
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+
+    if (map.has(complement)) {
+      return [map.get(complement), i];
+    }
+
+    map.set(nums[i], i);
+  }
 }
 
 // 실행 예시

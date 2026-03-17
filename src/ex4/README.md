@@ -40,27 +40,8 @@ Medium (기술면접 빈출)
 
 ### 코드
 
-```javascript
-function lengthOfLongestSubstring(s) {
-  const map = new Map(); // 문자 → 마지막 등장 인덱스
-  let left = 0;
-  let maxLen = 0;
+ (풀이 후 작성)
 
-  for (let right = 0; right < s.length; right++) {
-    const char = s[right];
-
-    // 중복 문자가 현재 윈도우 안에 있으면 left를 이동
-    if (map.has(char) && map.get(char) >= left) {
-      left = map.get(char) + 1;
-    }
-
-    map.set(char, right);
-    maxLen = Math.max(maxLen, right - left + 1);
-  }
-
-  return maxLen;
-}
-```
 
 ### 동작 예시 (`"abcabcbb"`)
 
