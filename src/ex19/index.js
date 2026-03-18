@@ -12,10 +12,6 @@ const WORDS = ['zero','one','two','three','four','five','six','seven','eight','n
  */
 function solution(s) {
   // 여기에 풀이를 작성하세요
-  WORDS.forEach((word, index) => {
-    s = s.replaceAll(word, index);
-  });
-  return Number(s);
 }
 
 // ─── 실행 예시 ───────────────────────────────────────────────────────────────

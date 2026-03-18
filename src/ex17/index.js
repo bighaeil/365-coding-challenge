@@ -12,27 +12,6 @@
  */
 function solution(n, lost, reserve) {
   // 여기에 풀이를 작성하세요
-  const lostSet = new Set(lost);
-  const reserveSet = new Set(reserve);
-
-  for (const student of reserve) {
-    if (lostSet.has(student)) {
-      lostSet.delete(student);
-      reserveSet.delete(student);
-    }
-  }
-
-  for (const student of lostSet) {
-    if (reserveSet.has(student - 1)) {
-      lostSet.delete(student);
-      reserveSet.delete(student - 1);
-    } else if (reserveSet.has(student + 1)) {
-      lostSet.delete(student);
-      reserveSet.delete(student + 1);
-    }
-  }
-
-  return n - lostSet.size;
 }
 
 // ─── 실행 예시 ───────────────────────────────────────────────────────────────

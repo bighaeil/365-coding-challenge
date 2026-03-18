@@ -5,7 +5,6 @@
 
 function uniqueArray(arr) {
   // 여기에 풀이를 작성하세요
-  return [...new Set(arr)]
 }
 
 // 실행 예시

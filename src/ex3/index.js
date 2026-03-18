@@ -5,25 +5,6 @@
 
 function isValid(s) {
   // 여기에 풀이를 작성하세요
-  const stack = [];
-  const pairs = {
-    ")": "(",
-    "}": "{",
-    "]": "["
-  }
-
-  for (const char of s) {
-    if (char === '(' || char === '{' || char === '[') {
-      stack.push(char);
-    } else {
-      if (stack.length === 0 || stack[stack.length - 1] !== pairs[char]) {
-        return false;
-      }
-      stack.pop();
-    }
-  }
-
-  return stack.length === 0;
 }
 
 // 실행 예시

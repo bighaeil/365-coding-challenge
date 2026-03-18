@@ -12,17 +12,11 @@ class TreeNode {
 }
 
 /**
- * 재귀(DFS)로 최대 깊이 계산
- * 시간 복잡도: O(n)
- * 공간 복잡도: O(h) — h는 트리 높이
- *
  * @param {TreeNode} root
  * @returns {number}
  */
 function maxDepth(root) {
   // 여기에 풀이를 작성하세요
-  if (root === null) return 0;
-  return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 }
 
 // ─── 테스트용 헬퍼: 배열(레벨 순서)로 이진 트리 생성 ────────────────────────
