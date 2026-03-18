@@ -6,22 +6,31 @@
 class MinStack {
   constructor() {
     // 여기에 초기화를 작성하세요
+    this.stack = [];
+    this.minStack = [];
   }
 
   push(val) {
     // 여기에 풀이를 작성하세요
+    this.stack.push(val);
+    const min = this.minStack.length === 0 ? val : Math.min(val, this.minStack[this.minStack.length - 1]);
+    this.minStack.push(min);
   }
 
   pop() {
     // 여기에 풀이를 작성하세요
+    this.stack.pop();
+    this.minStack.pop();
   }
 
   top() {
     // 여기에 풀이를 작성하세요
+    return this.stack[this.stack.length - 1];
   }
 
   getMin() {
     // 여기에 풀이를 작성하세요
+    return this.minStack[this.minStack.length - 1];
   }
 }
 

@@ -9,6 +9,24 @@
  */
 function solution(n) {
   // 여기에 풀이를 작성하세요
+  let count = 0;
+  let left = 1, right = 1, sum = 1;
+
+  while (left <= Math.floor(n / 2)) {
+    if (sum === n) {
+      count++;
+      right++;
+      sum += right;
+    } else if (sum < n) {
+      right++;
+      sum += right;
+    } else {
+      sum -= left;
+      left++;
+    }
+  }
+
+  return count;
 }
 
 // ─── 실행 예시 ───────────────────────────────────────────────────────────────

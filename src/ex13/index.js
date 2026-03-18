@@ -21,6 +21,8 @@ class TreeNode {
  */
 function maxDepth(root) {
   // 여기에 풀이를 작성하세요
+  if (root === null) return 0;
+  return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 }
 
 // ─── 테스트용 헬퍼: 배열(레벨 순서)로 이진 트리 생성 ────────────────────────
