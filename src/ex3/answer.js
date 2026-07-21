@@ -8,25 +8,21 @@
  * @return {boolean}
  */
 function isValid(s) {
-  // 여기에 코드를 작성하세요
-  const stack = []
   const pairs = {
-    ')': '(',
-    '}': '{',
-    ']': '['
+    '(': ')',
+    '{': '}',
+    '[': ']'
   }
+  const stack = []
 
   for (const char of s) {
-    if (char === '(' || char === '{' || char === '[') {
-        stack.push(char)
-    } else {
-        if (stack.length === 0 || stack[stack.length - 1] !== pairs[char]) {
-            return false;
-        }
-        stack.pop();
+    if (pairs[char]) {
+      stack.push(char)
+    } else if (pairs[stack.pop()] !== char) {
+      return false
     }
   }
-  return stack.length === 0;
+  return stack.length === 0
 }
 
 // ===== 테스트 =====
