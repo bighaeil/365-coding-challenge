@@ -18,9 +18,10 @@ function intersect(nums1, nums2) {
   }
 
   for (const num of nums2) {
-    if (countMap.has(num) && countMap.get(num) > 0) {
+    const count = countMap.get(num);
+    if (count > 0) {
         result.push(num);
-        countMap.set(num, countMap.get(num) - 1);
+        countMap.set(num, count - 1);
     }
   }
 
