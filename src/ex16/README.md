@@ -114,3 +114,60 @@ dfs(0, 0)
 |--|--|
 | 시간 | O(2ⁿ) — n 최대 20 → 약 100만 번 |
 | 공간 | O(n) — 재귀 호출 스택 깊이 |
+
+---
+
+# BFS 풀이
+
+재귀 대신 **큐**를 사용해 레벨(인덱스) 단위로 탐색합니다.
+
+### 아이디어
+
+- 큐에 `[index, sum]` 상태를 저장
+- 큐에서 하나 꺼낼 때마다 현재 숫자를 `+`, `-` 한 두 상태를 다시 큐에 넣음
+- `index === numbers.length`에 도달한 상태 중 `sum === target`인 것을 count
+
+```javascript
+function solution(numbers, target) {
+  let count = 0;
+  const queue = [[0, 0]]; // [index, sum]
+
+  while (queue.length > 0) {
+    const [index, sum] = queue.shift();
+
+    if (index === numbers.length) {
+      if (sum === target) count++;
+      continue;
+    }
+
+    queue.push([index + 1, sum + numbers[index]]);
+    queue.push([index + 1, sum - numbers[index]]);
+  }
+
+  return count;
+}
+```
+
+### 🔍 동작 흐름 (`[1,1,1,1,1]`, target=3)
+
+```
+큐: [0,0]
+ → [1,+1] [1,-1]                    (0번 숫자 처리)
+ → [2,+2] [2,0] [2,0] [2,-2]        (1번 숫자 처리)
+ → ...                              (레벨마다 상태 수가 2배씩 증가)
+ → index=5인 상태 32개 중 sum=3인 상태 5개 → count=5
+```
+
+### 💡 DFS와의 차이
+
+- **탐색 순서**: DFS는 한 경로를 끝까지 파고들지만, BFS는 같은 인덱스(레벨)의 상태를 먼저 모두 처리
+- **정답 개수는 동일**: 리프 상태(`index === length`)를 전부 확인하므로 결과는 DFS와 같은 `5`
+
+### 📊 복잡도
+
+| | |
+|--|--|
+| 시간 | O(2ⁿ) — DFS와 동일하게 모든 상태 탐색 |
+| 공간 | O(2ⁿ) — 큐에 마지막 레벨의 상태(최대 2ⁿ개)가 동시에 쌓임 |
+
+> **면접 팁**: 이 문제는 정답 경로의 "최단 거리"를 찾는 게 아니라 "모든 경우의 수"를 세는 문제라, BFS의 레벨 탐색 이점이 없고 오히려 큐 때문에 메모리만 O(2ⁿ)로 늘어납니다. 그래서 **재귀 DFS가 더 적합**합니다. `shift()`의 O(n) 비용을 피하려면 포인터 인덱스나 별도 큐 자료구조를 쓰는 것도 언급하면 좋습니다.
